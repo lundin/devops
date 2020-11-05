@@ -28,7 +28,11 @@ steps:
     command: 'custom'
     customCommand: 'run'
     arguments: 'main.go'
-
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
